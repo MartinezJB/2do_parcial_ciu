@@ -1,12 +1,14 @@
 import React, { useState, Fragment } from 'react';
 import fetchSuperByName from '../functions/fetchSuperByName';
+import ListaDeResultados from './ListaDeResultados';
 
 export default function CuadroDeBusqueda() {
     async function buscar(busqueda) {
         const result = await fetchSuperByName(busqueda)
-        console.log(result);
+        setResultados(result)
     }
-    const [nombreABuscar, setNombreABuscar] = useState("")
+    const [nombreABuscar, setNombreABuscar] = useState("");
+    const [resultados, setResultados] = useState([]);
     return (
         <Fragment>
 
@@ -16,6 +18,8 @@ export default function CuadroDeBusqueda() {
             />
             <button onClick={() => buscar(nombreABuscar)}  type="submit">buscar</button>
         </form>
+
+        <ListaDeResultados respuesta={resultados}/>
 
         </Fragment>
     )
