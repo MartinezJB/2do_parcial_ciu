@@ -4,11 +4,11 @@ import ListaDeResultados from './ListaDeResultados';
 
 export default function CuadroDeBusqueda() {
     async function buscar(busqueda) {
-        const result = await fetchSuperByName(busqueda)
-        setResultados(result)
+        const resultado = await fetchSuperByName(busqueda)
+        setRespuesta(resultado)
     }
     const [nombreABuscar, setNombreABuscar] = useState("");
-    const [resultados, setResultados] = useState([]);
+    const [respuesta, setRespuesta] = useState({});
     return (
         <Fragment>
 
@@ -19,7 +19,7 @@ export default function CuadroDeBusqueda() {
             <button onClick={() => buscar(nombreABuscar)}  type="submit">buscar</button>
         </form>
 
-        <ListaDeResultados respuesta={resultados}/>
+        <ListaDeResultados respuesta={respuesta}/>
 
         </Fragment>
     )

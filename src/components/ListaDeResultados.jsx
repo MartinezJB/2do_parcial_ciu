@@ -6,7 +6,7 @@ export default function ListaDeResultados({respuesta}) {
 
     var lista = respuesta.results
     
-    if(respuesta == 0){
+    if(Object.keys(respuesta).length === 0){
         return(
             <div></div>
         )
