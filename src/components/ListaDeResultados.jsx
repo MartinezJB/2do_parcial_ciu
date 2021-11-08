@@ -18,20 +18,20 @@ export default function ListaDeResultados({respuesta}) {
         )
     }
 
-    if(lista.length > 5){
-        lista=lista.slice(1,6)
+    if(lista.length > 4){
+        lista=lista.slice(0,4)
     }
 
     
     return (
-        <div>
+        <div className="bg-gray-600 bg-opacity-50 rounded my-2 mx-4 p-2 grid grid-cols-2 md:grid-cols-4">
             {
                 lista.map((result, key)=>(
-                    <Card
-                        key={key}
-                        nombre={result.name}
-                        urlImagen={result.image.url}
-                    />
+                        <Card
+                            key={key}
+                            nombre={result.name}
+                            urlImagen={result.image.url}
+                        />
                 ))
             }            
         </div>
