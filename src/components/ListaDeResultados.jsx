@@ -18,13 +18,17 @@ export default function ListaDeResultados({respuesta}) {
         )
     }
 
+    if(lista === undefined){
+        lista = respuesta
+    }
+
     if(lista.length > 4){
         lista=lista.slice(0,4)
     }
 
     
     return (
-        <div className="bg-gray-600 bg-opacity-50 rounded my-2 mx-4 p-2 grid grid-cols-2 md:grid-cols-4">
+        <div className="bg-gray-400 bg-opacity-50 rounded my-2 mx-4 p-2 grid grid-cols-2 md:grid-cols-4">
             {
                 lista.map((result, key)=>(
                         <Card

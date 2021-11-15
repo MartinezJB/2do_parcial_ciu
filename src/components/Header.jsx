@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Header() {
     return (
-      <header className="bg-gradient-to-b from-green-600 to-green-300 border-b-2 border-gray-800 p-2">
+      <header className="bg-gradient-to-b from-green-600 to-green-300 p-2">
         <h1 className="font-semibold text-xl text-white text-center">Superhero's inc.</h1>
       </header>
     )

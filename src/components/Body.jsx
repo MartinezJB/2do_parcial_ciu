@@ -1,11 +1,12 @@
 import React from 'react';
-import { Fragment } from 'react';
 import CuadroDeBusqueda from './CuadroDeBusqueda';
+import ListaDePopulares from './ListaDePopulares';
 
 export default function Body() {
     return (
-        <Fragment>
+        <div className="p-2 md:p-4 bg-gray-50 mx-8">
             <CuadroDeBusqueda />
-        </Fragment>
+            <ListaDePopulares />
+        </div>
     )
 }
