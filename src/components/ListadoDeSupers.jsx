@@ -6,6 +6,7 @@ import ListaDeResultados from './ListaDeResultados';
 export default function ListadoDeSupers() {
     const [idsSupers, setIdsSupers] = useState([1,2,3,4])
     const [Supers, setSupers] = useState([]);
+    const [nroPagina, setNroPagina] = useState(1);
 
     
     const actualizarComponente = async () => {
@@ -30,8 +31,11 @@ export default function ListadoDeSupers() {
         
 
             <ListaDeResultados respuesta={Supers} />
+
+            <h3>Pág. {nroPagina}</h3>
             
-            <BtnCambioDePagina setPaginaActual={setIdsSupers} actualizarComponente={actualizarComponente} />
+            <BtnCambioDePagina setPaginaActual={setIdsSupers} actualizarComponente={actualizarComponente} esPaginaSiguiente={true} nroPagina={nroPagina} setNroPagina={setNroPagina} />
+            <BtnCambioDePagina setPaginaActual={setIdsSupers} actualizarComponente={actualizarComponente} esPaginaSiguiente={false} nroPagina={nroPagina} setNroPagina={setNroPagina}  />
 
         </Fragment>
     )
