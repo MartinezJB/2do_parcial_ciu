@@ -26,17 +26,19 @@ export default function ListadoDeSupers() {
     
 
     return (
-        <Fragment>
-            <h3>Todos los Superheroes:</h3>
+        <div className="border-2 mt-2 p-2 rounded">
+            <h3 className="ml-4">Todos los Superheroes:</h3>
         
 
             <ListaDeResultados respuesta={Supers} />
 
-            <h3>Pág. {nroPagina}</h3>
             
-            <BtnCambioDePagina setPaginaActual={setIdsSupers} actualizarComponente={actualizarComponente} esPaginaSiguiente={true} nroPagina={nroPagina} setNroPagina={setNroPagina} />
-            <BtnCambioDePagina setPaginaActual={setIdsSupers} actualizarComponente={actualizarComponente} esPaginaSiguiente={false} nroPagina={nroPagina} setNroPagina={setNroPagina}  />
+            <div className="flex justify-evenly">
+                <BtnCambioDePagina setPaginaActual={setIdsSupers} actualizarComponente={actualizarComponente} esPaginaSiguiente={false} nroPagina={nroPagina} setNroPagina={setNroPagina}  />
+                <h3 className="self-center">Pág. {nroPagina}</h3>
+                <BtnCambioDePagina setPaginaActual={setIdsSupers} actualizarComponente={actualizarComponente} esPaginaSiguiente={true} nroPagina={nroPagina} setNroPagina={setNroPagina} />
+            </div>
 
-        </Fragment>
+        </div>
     )
 }

@@ -6,23 +6,33 @@ export default function BtnCambioDePagina({setPaginaActual, actualizarComponente
         NOTA: Una página es un array de 4 ids de supers que hay en pantalla
             Al cambiar de pagina, estos ids aumentan para mostrar otros ids
     */
-    function cambiarPagina() {
-        /*
-            Este metodo cambia el valor de los ids de los superheroes para simular 
-            una paginación dentro de la pagina principal.
-        */
+    var nroPaginaAActualizar = nroPagina;
+    var paginaAActualizar;
+    var aQuePaginaApunta = "";
+    var urlImagenFlecha = "./flecha.png";
+    var imgClass = "h-8 mx-auto"
 
-        setNroPagina(
-            esPaginaSiguiente ? nroPagina + 1 :
-            nroPagina <= 1 ? 1 : nroPagina - 1
-        )
+    if(esPaginaSiguiente) {
+        nroPaginaAActualizar += 1;
+        paginaAActualizar = (e) => e.map(id => id + e.length);
+        aQuePaginaApunta = "Página siguiente"
+    }
+    else{
+        nroPagina <= 1 ? nroPaginaAActualizar = nroPagina : nroPaginaAActualizar -= 1;
+        paginaAActualizar = (e) => e[0] <= 1 ? e : e.map(id => id - e.length);
+        aQuePaginaApunta = "Página anterior";
+        imgClass += " transform rotate-180"
+    }
+
+    function cambiarPagina() {
+    /*
+        Este metodo cambia el valor de los ids de los superheroes para simular 
+        una paginación dentro de la pagina principal.
+    */
+
+        setNroPagina( nroPaginaAActualizar )
         
-        setPaginaActual((e) => {
-            return esPaginaSiguiente ?  
-                e.map(id => id + e.length) :
-                e[0] <= 1 ? e :
-                e.map(id => id - e.length)
-        })
+        setPaginaActual(paginaAActualizar)
 
         actualizarComponente()
         
@@ -30,7 +40,10 @@ export default function BtnCambioDePagina({setPaginaActual, actualizarComponente
 
     return (
         <Fragment>
-            <button className="bg-gray-700" onClick={() => cambiarPagina()}>página {esPaginaSiguiente ? "siguiente" : "anterior"} --+</button>
+            <button className="bg-yellow-400 hover:bg-yellow-500 rounded py-1 px-2" onClick={() => cambiarPagina()}>
+                {aQuePaginaApunta}
+                <img src={urlImagenFlecha} className={imgClass} alt="" />
+            </button>
         </Fragment>
     )
 }
