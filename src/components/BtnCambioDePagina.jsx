@@ -8,19 +8,16 @@ export default function BtnCambioDePagina({setPaginaActual, actualizarComponente
     */
     var nroPaginaAActualizar = nroPagina;
     var paginaAActualizar;
-    var aQuePaginaApunta = "";
     var urlImagenFlecha = "./flecha.png";
     var imgClass = "h-8 mx-auto"
 
     if(esPaginaSiguiente) {
         nroPaginaAActualizar += 1;
         paginaAActualizar = (e) => e.map(id => id + e.length);
-        aQuePaginaApunta = "Página siguiente"
     }
     else{
         nroPagina <= 1 ? nroPaginaAActualizar = nroPagina : nroPaginaAActualizar -= 1;
         paginaAActualizar = (e) => e[0] <= 1 ? e : e.map(id => id - e.length);
-        aQuePaginaApunta = "Página anterior";
         imgClass += " transform rotate-180"
     }
 
@@ -40,8 +37,7 @@ export default function BtnCambioDePagina({setPaginaActual, actualizarComponente
 
     return (
         <Fragment>
-            <button className="bg-yellow-400 hover:bg-yellow-500 rounded py-1 px-2" onClick={() => cambiarPagina()}>
-                {aQuePaginaApunta}
+            <button className="bg-yellow-400 hover:bg-yellow-500 rounded py-1 px-4" onClick={() => cambiarPagina()}>
                 <img src={urlImagenFlecha} className={imgClass} alt="" />
             </button>
         </Fragment>
