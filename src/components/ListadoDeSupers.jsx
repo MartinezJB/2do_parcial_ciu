@@ -16,7 +16,7 @@ export default function ListadoDeSupers() {
         }))
         setSupers(asyncRes)
 
-        console.log("Si ves esto muchas veces seguidas, se rompió todo")
+        //console.log("Si ves esto muchas veces seguidas, se rompió todo")
     }
     
     useEffect( async () => {

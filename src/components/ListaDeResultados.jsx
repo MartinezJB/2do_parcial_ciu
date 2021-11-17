@@ -33,8 +33,7 @@ export default function ListaDeResultados({respuesta}) {
                 lista.map((result, key)=>(
                         <Card
                             key={key}
-                            nombre={result.name}
-                            urlImagen={result.image.url}
+                            superHeroe={result}
                         />
                 ))
             }            
